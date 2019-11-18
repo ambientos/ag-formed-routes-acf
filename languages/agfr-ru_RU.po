@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AG Formed Routes Plugin 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-18 06:01+0500\n"
-"PO-Revision-Date: 2019-11-18 06:01+0500\n"
+"POT-Creation-Date: 2019-11-18 17:32+0500\n"
+"PO-Revision-Date: 2019-11-18 17:33+0500\n"
 "Last-Translator: Anton Grakhov <ant.grakhov@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -32,18 +32,26 @@ msgstr "Поле From"
 msgid "To field"
 msgstr "Поле To"
 
-#: core/Routes_Field.php:151
+#: core/Routes_Field.php:152
 msgid "Generate route list"
 msgstr "Создать список маршрутов"
 
-#: core/Routes_Field.php:161
+#: core/Routes_Field.php:153
+msgid "Clear list"
+msgstr "Очистить"
+
+#: core/Routes_Field.php:165
 msgid "Route"
 msgstr "Маршрут"
 
-#: core/Routes_Field.php:162
+#: core/Routes_Field.php:166
 msgid "Price"
 msgstr "Цена"
 
-#: core/Routes_Field.php:163
+#: core/Routes_Field.php:167
 msgid "Departure Time"
 msgstr "Время отправления"
+
+#: core/Routes_Field.php:168
+msgid "Arrival Time"
+msgstr "Время прибытия"

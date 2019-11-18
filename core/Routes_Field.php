@@ -148,12 +148,16 @@ class Routes_Field extends \acf_field {
 
 		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo esc_attr($field['value']) ?>" style="display:none">
 
-		<p><button id="agfr-generate-btn" class="button button-primary button-large"><?php _e( 'Generate route list', TEXT_DOMAIN ) ?></button></p>
+		<p class="actions">
+			<button id="agfr-generate-btn" class="button button-primary button-large" style="display:none"><?php _e( 'Generate route list', TEXT_DOMAIN ) ?></button>
+			<button id="agfr-clear-btn" class="button button-secondary button-large" style="display:none"><?php _e( 'Clear list', TEXT_DOMAIN ) ?></button>
+		</p>
 
 		<table id="agfr-datatable" class="wp-list-table widefat striped" style="display:none">
 			<colgroup>
 				<col>
 				<col style="width:130px">
+				<col style="width:120px">
 				<col style="width:100px">
 			</colgroup>
 			<thead>
@@ -161,6 +165,7 @@ class Routes_Field extends \acf_field {
 					<th><?php _e( 'Route', TEXT_DOMAIN ) ?></th>
 					<th><?php _e( 'Price', TEXT_DOMAIN ) ?></th>
 					<th><?php _e( 'Departure Time', TEXT_DOMAIN ) ?></th>
+					<th><?php _e( 'Arrival Time', TEXT_DOMAIN ) ?></th>
 				</tr>
 			</thead>
 			<tbody id="agfr-datatable-list"></tbody>
@@ -188,7 +193,7 @@ class Routes_Field extends \acf_field {
 			TEXT_DOMAIN . '-field',
 			PLUGIN_URI . '/assets/js/agfr-field.js',
 			array( 'acf-input', ),
-			'20191118'
+			'201911182'
 		);
 	}
 }
