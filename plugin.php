@@ -2,6 +2,7 @@
 
 /**
  * Plugin Name: Formed Routes for ACF
+ * Description: Special ACF Field Type to save data about routes
  * Version: 0.1
  * Requires PHP: 5.4
  * Author: Anton Grakhov

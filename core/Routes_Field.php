@@ -27,7 +27,7 @@ class Routes_Field extends \acf_field {
 		*  label (string) Multiple words, can include spaces, visible when selecting a field type
 		*/
 
-		$this->label = __('Formed routes', TEXT_DOMAIN);
+		$this->label = __('Routes', TEXT_DOMAIN);
 
 		/*
 		*  category (string) basic | content | choice | relational | jquery | layout | CUSTOM GROUP NAME
@@ -148,7 +148,7 @@ class Routes_Field extends \acf_field {
 
 		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo esc_attr($field['value']) ?>" style="display:none">
 
-		<p><button id="agfr-generate-btn" class="button button-primary button-large"><?php _e( 'Generate route list', TEXTDOMAIN ) ?></button></p>
+		<p><button id="agfr-generate-btn" class="button button-primary button-large"><?php _e( 'Generate route list', TEXT_DOMAIN ) ?></button></p>
 
 		<table id="agfr-datatable" class="wp-list-table widefat striped" style="display:none">
 			<colgroup>
@@ -158,9 +158,9 @@ class Routes_Field extends \acf_field {
 			</colgroup>
 			<thead>
 				<tr>
-					<th><?php _e( 'Route', TEXTDOMAIN ) ?></th>
-					<th><?php _e( 'Price', TEXTDOMAIN ) ?></th>
-					<th><?php _e( 'Departure Time', TEXTDOMAIN ) ?></th>
+					<th><?php _e( 'Route', TEXT_DOMAIN ) ?></th>
+					<th><?php _e( 'Price', TEXT_DOMAIN ) ?></th>
+					<th><?php _e( 'Departure Time', TEXT_DOMAIN ) ?></th>
 				</tr>
 			</thead>
 			<tbody id="agfr-datatable-list"></tbody>
@@ -185,10 +185,10 @@ class Routes_Field extends \acf_field {
 
 	function input_admin_enqueue_scripts() {
 		wp_enqueue_script(
-			TEXTDOMAIN . '-field',
+			TEXT_DOMAIN . '-field',
 			PLUGIN_URI . '/assets/js/agfr-field.js',
 			array( 'acf-input', ),
-			'20191117'
+			'20191118'
 		);
 	}
 }

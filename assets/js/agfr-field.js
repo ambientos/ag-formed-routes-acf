@@ -32,7 +32,9 @@
 	}
 
 	acf.addAction('load', function(){
-		$('#agfr-generate-btn').on('click', function(){
+		$('#agfr-generate-btn').on('click', function(e){
+			e.preventDefault()
+
 			renderTable()
 		})
 
