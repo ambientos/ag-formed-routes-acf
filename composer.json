@@ -1,0 +1,19 @@
+{
+    "name": "ag/formed-routes-acf",
+    "description": "Add Formed Routes for ACF",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Anton Grakhov",
+            "email": "ant.grakhov@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AG_Formed_Routes_ACF\\": "core/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
