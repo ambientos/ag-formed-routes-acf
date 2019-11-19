@@ -136,11 +136,11 @@ class Routes_Field extends \acf_field {
 		}
 
 		acf_localize_data( array(
-			'relation_fields' => array(
-				'field' => $field['key'],
-				'from'  => $from_object['key'],
-				'to'    => $to_object['key'],
-				'terms' => $terms_localize,
+			'formed_routes_init_data' => array(
+				'field_key'      => $field['key'],
+				'field_from_key' => $from_object['key'],
+				'field_to_key'   => $to_object['key'],
+				'terms'          => $terms_localize,
 			),
 		) );
 
@@ -193,7 +193,7 @@ class Routes_Field extends \acf_field {
 			TEXT_DOMAIN . '-field',
 			PLUGIN_URI . '/assets/js/agfr-field.js',
 			array( 'acf-input', ),
-			'201911182'
+			'20191119'
 		);
 	}
 }
