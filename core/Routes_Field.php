@@ -165,7 +165,7 @@ class Routes_Field extends \acf_field {
 					<th><?php _e( 'Route', TEXT_DOMAIN ) ?></th>
 					<th><?php _e( 'Price', TEXT_DOMAIN ) ?></th>
 					<th><?php _e( 'Departure Time', TEXT_DOMAIN ) ?></th>
-					<th><?php _e( 'Arrival Time', TEXT_DOMAIN ) ?></th>
+					<th>Часы в пути</th>
 				</tr>
 			</thead>
 			<tbody id="agfr-datatable-list"></tbody>
@@ -193,7 +193,7 @@ class Routes_Field extends \acf_field {
 			TEXT_DOMAIN . '-field',
 			PLUGIN_URI . '/assets/js/agfr-field.js',
 			array( 'acf-input', ),
-			'20191119'
+			'20200305'
 		);
 	}
 }

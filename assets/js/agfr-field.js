@@ -185,7 +185,9 @@
 			$.each(fieldToVal, function(j, fieldToValItem){
 				// Generate 'id' for current row
 				var rowId = fieldFromValItem + ':' + fieldToValItem,
-					rowIdExistsPos = -1
+					rowIdExistsPos = -1,
+					firstFromIndex = i === 0 ? 1 : 0,
+					lastToIndex    = (fieldToVal.length -1) === j ? 1 : 0,
 
 
 				// Check if data row exists
@@ -194,11 +196,21 @@
 				// If equivalent row founded in tableRows array, use it
 				// or just add new row by data
 				if ( rowIdExistsPos > -1 ) {
-					fieldRoutersDataTmpArray.push( fieldRoutersDataArray[rowIdExistsPos] )
+					var rowData = fieldRoutersDataArray[rowIdExistsPos]
+
+					// Add route data from initData because this is absent in stored data object
+					rowData.route = initData.terms[fieldFromValItem] + ' &mdash; ' + initData.terms[fieldToValItem]
+
+					rowData.firstFromIndex = firstFromIndex
+					rowData.lastToIndex    = lastToIndex
+
+					fieldRoutersDataTmpArray.push( rowData )
 				}
 				else {
 					fieldRoutersDataTmpArray.push({
 						id: rowId,
+						firstFromIndex: firstFromIndex,
+						lastToIndex: lastToIndex,
 						route: initData.terms[fieldFromValItem] + ' &mdash; ' + initData.terms[fieldToValItem],
 						price: '',
 						dtime: '',
@@ -214,7 +226,21 @@
 		 */
 
 		var tableRowsArray = fieldRoutersDataTmpArray.map(function(row){
-			return '<tr data-id="'+ row.id +'"><td>'+ row.route +'</td><td><input name="agfr-datatable-price[]" size="10" value="'+ row.price +'"></td><td><input name="agfr-datatable-dtime[]" size="5" value="'+ row.dtime +'"></td><td><input name="agfr-datatable-atime[]" size="5" value="'+ row.atime +'"></td></tr>'
+			var tableRow = '<tr data-id="'+ row.id +'">'+
+				// Route
+				'<td>'+ row.route +'</td>'+
+
+				// Price
+				'<td><input name="agfr-datatable-price[]" size="10" value="'+ row.price +'"></td>'+
+
+				// Departure time
+				'<td><input name="agfr-datatable-dtime[]" size="5" value="'+ row.dtime +'"'+ ( row.lastToIndex ? '' : ' readonly' ) +'></td>'+
+
+				// Arrive time
+				'<td><input name="agfr-datatable-atime[]" size="5" value="'+ row.atime +'"'+ ( row.firstFromIndex ? '' : ' readonly' ) +'></td>'+
+			'</tr>'
+
+			return tableRow;
 		})
 
 		$tableList.empty().append(tableRowsArray.join(''))
@@ -233,7 +259,15 @@
 	 * Update array data and field
 	 */
 	function fieldUpdate(dataTmpArray) {
-		fieldRoutersDataArray = dataTmpArray
+		dataTmpArray = dataTmpArray.map(function(row){
+			return {
+				id: row.id,
+				price: row.price,
+				dtime: row.dtime,
+				atime: row.atime
+			}
+		})
+
 		fieldRouters.val( JSON.stringify(dataTmpArray) )
 	}
 })(jQuery)
